@@ -1,1 +1,5 @@
 rootProject.name = 'forge'
+include(":eclipse:Clean")
+include(":eclipse:Forge")
+println(projects.projects.toString())
+//include(":fml")
