@@ -7,11 +7,10 @@
 ##############################################################################
 
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
-# -Xss<num>m sets the stack size
-DEFAULT_JVM_OPTS="-Xss128m"
+DEFAULT_JVM_OPTS=""
 
 APP_NAME="Gradle"
-APP_BASE_NAME=$(basename "$0")
+APP_BASE_NAME=`basename "$0"`
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
@@ -31,7 +30,7 @@ die ( ) {
 cygwin=false
 msys=false
 darwin=false
-case "$(uname)" in
+case "`uname`" in
   CYGWIN* )
     cygwin=true
     ;;
@@ -161,7 +160,5 @@ function splitJvmOpts() {
 }
 eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS
 JVM_OPTS[${#JVM_OPTS[*]}]="-Dorg.gradle.appname=$APP_BASE_NAME"
-
-echo "${JVM_OPTS[@]}"
 
 exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
